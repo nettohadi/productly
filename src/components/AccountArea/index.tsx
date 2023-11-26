@@ -6,7 +6,7 @@ import Loading from "../Loading";
 import ErrorMessage from "../ErrorMessage";
 import useValidJwt from "../../hooks/useValidJwt.hook";
 
-const fetchProducts = async (token?: string | null) => {
+const fetchProducts = async (token: string | null) => {
   if (!token) {
     throw new Error(`Token invalid`);
   }
@@ -35,7 +35,7 @@ const AccountArea = () => {
     products: Array<Product>;
   }>({
     queryKey: ["products"],
-    queryFn: () => fetchProducts(jwt?.token),
+    queryFn: () => fetchProducts(jwt?.token || null),
   });
 
   // Use useMemo for calculating progressBarWidth to avoid unnecessary recalculations on every render
@@ -50,7 +50,7 @@ const AccountArea = () => {
   }
 
   if (isError) {
-    return <ErrorMessage message={error.message} />;
+    return <ErrorMessage message={error?.message} />;
   }
 
   return (

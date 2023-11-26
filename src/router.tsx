@@ -1,20 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
-import FirstTest from "./components/FirstTask";
-import SecondTest from "./components/SecondTask/SecondTest";
+import FirstTask from "./components/FirstTask";
+import SecondTask from "./components/AccountArea";
 import Login from "./components/Login";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <FirstTest />,
+    element: <FirstTask />,
   },
   {
-    path: "/first-test",
-    element: <FirstTest />,
+    path: "/first-task",
+    element: <FirstTask />,
   },
   {
-    path: "/second-test",
-    element: <SecondTest />,
+    path: "/second-task",
+    element: <SecondTask />,
   },
   {
     path: "/login",
