@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from "./components/Home";
-import FirstTest from "./components/FirstTest";
-import SecondTest from "./components/SecondTest";
+import FirstTest from "./components/FirstTask";
+import SecondTest from "./components/SecondTask/SecondTest";
+import Login from "./components/Login";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <FirstTest />,
   },
   {
     path: "/first-test",
@@ -15,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/second-test",
     element: <SecondTest />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 
