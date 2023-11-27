@@ -1,5 +1,5 @@
 <div style="display: flex; justify-content: center; margin-bottom: 20px; width: 100%;">
-  <img src="src/assets/productly-logo.png" alt="Productly Logo" width="600" height="100">
+  <img src="src/assets/screen-shot.png" alt="Productly Logo" width="100%" height="100%">
 </div>
 
 # Productly Project Setup
