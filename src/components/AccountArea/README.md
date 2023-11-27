@@ -9,37 +9,32 @@ This document outlines the refactoring of the `AccountArea` component. The refac
 ### Introduction of `useQuery` from TanStack Query
 
 - Replaced the manual fetch call with `useQuery` for fetching product data.
-- **Rationale**: Enhances code readability and maintainability, and provides built-in states for loading and error handling.
+- **Benefit**: Enhances code readability and maintainability, and provides built-in states for loading and error handling.
 
 ### Refactoring Token Validation and Navigation
 
 - Implemented `useAuthToken` hook for JWT token validation and navigation.
-- **Rationale**: Encapsulates token validation logic, improving reusability and separation of concerns.
-
-### useMemo for ProgressBar Width Calculation
-
-- Utilized `useMemo` for calculating the progress bar's width.
-- **Rationale**: Prevents unnecessary recalculations on each render, improving performance.
+- **Benefit**: Encapsulates token validation logic, improving reusability and separation of concerns.
 
 ### Enhanced Error Handling
 
 - Integrated `ErrorMessage` component to handle and display errors.
-- **Rationale**: Offers a consistent and reusable method for error presentation.
+- **Benefit**: Offers a consistent and reusable method for error presentation.
 
 ### UI and UX Enhancements
 
 - Added missing product descriptions to the product listing.
-- **Rationale**: Improves user experience by providing complete information about products.
+- **Benefit**: Improves user experience by providing complete information about products.
 
-### Styling and Layout Adjustments
+### useMemo for ProgressBar Width Calculation
 
-- Enhanced CSS classes for improved layout and styling.
-- **Rationale**: Boosts the visual appeal and user experience of the component.
+- Utilized `useMemo` for calculating the progress bar's width.
+- **Benefit**: Prevents unnecessary recalculations on each render, improving performance.
 
 ### Correction of Progress Bar Width Logic
 
 - Fixed the progress bar width calculation by appending a "%" to the style.
-- **Rationale**: The original code lacked the "%" in the width style, leading to incorrect display. Adding "%" ensures accurate representation of the loaded product percentage.
+- **Benefit**: The original code lacked the "%" in the width style, leading to incorrect display. Adding "%" ensures accurate representation of the loaded product percentage.
 
 ## Conclusion
 
