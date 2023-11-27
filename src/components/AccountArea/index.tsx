@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Product } from "../ProductCard";
 import Loading from "../Loading";
 import ErrorMessage from "../ErrorMessage";
-import useAuthToken from "../../hooks/useValidJwt.hook";
+import useAuthToken from "../../hooks/useAuthToken.hook";
 
 const fetchProducts = async (token: string | null) => {
   if (!token) {
@@ -39,9 +39,11 @@ const AccountArea = () => {
   });
 
   // Use useMemo for calculating progressBarWidth to avoid unnecessary recalculations on every render
+  // I think useMemo here will not really matter since this is just a simple calculation
+  // But, it's nice to have
   const progressBarWidth = useMemo(() => {
-    const maxProducts = 60;
-    return data ? `${(data.products.length / maxProducts) * 100}%` : "0%"; // added percent
+    const maxProducts = 60; // This should probably come from the meta data in the backend, but I don't know if we have that
+    return data ? `${(data.products.length / maxProducts) * 100}%` : "0%"; // add percent
   }, [data]);
 
   if (isLoading) {
