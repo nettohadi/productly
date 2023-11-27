@@ -1,8 +1,10 @@
 import { JwtPayload, jwtDecode } from "jwt-decode";
 import { useRef } from "react";
 
-const useValidJwt = () => {
-  const jwt = useRef<{ user: JwtPayload; token: string } | null>(null);
+type AuthToken = { user: JwtPayload; token: string } | null;
+
+const useAuthToken = (): AuthToken => {
+  const jwt = useRef<AuthToken>(null);
 
   if (jwt.current) {
     return jwt.current;
@@ -22,4 +24,4 @@ const useValidJwt = () => {
   }
 };
 
-export default useValidJwt;
+export default useAuthToken;
