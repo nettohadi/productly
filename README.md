@@ -6,6 +6,7 @@
 
 ## Introduction
 
+This project is hosted on vercel [here](https://productly-sigma.vercel.app/).
 This README provides steps to run a Productly project locally and includes a link to the `AccountArea` component documentation.
 
 ## Prerequisites
