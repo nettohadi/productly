@@ -3,6 +3,7 @@ import { RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import router from "./router";
 const queryClient = new QueryClient();
+import ProductlyLogo from "./assets/productly-logo.png";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         <img
           id="header-logo"
           alt="Productly"
-          src="https://productly.app/static/media/productly.b3b488b2643e4d02175e.png"
+          src={ProductlyLogo}
           className="w-auto h-[30px]"
         />
       </div>
