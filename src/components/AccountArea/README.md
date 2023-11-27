@@ -16,6 +16,11 @@ This document outlines the refactoring of the `AccountArea` component. The refac
 - Implemented `useAuthToken` hook for JWT token validation and navigation.
 - **Benefit**: Encapsulates token validation logic, improving reusability and separation of concerns.
 
+### Use of `jwtDecode` for Token Decoding
+
+- Corrected the JWT decoding method from `jwt_decode` to `jwtDecode`.
+- **Benefit**: Ensures the use of the correct function from the `jwt-decode` library, improving the reliability of token parsing.
+
 ### Enhanced Error Handling
 
 - Integrated `ErrorMessage` component to handle and display errors.
