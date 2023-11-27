@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export type Product = {
   id: number;
   name: string;
   description: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images: string[];
+  price?: number;
+  discountPercentage?: number;
+  rating?: number;
+  stock?: number;
+  brand?: string;
+  category?: string;
+  thumbnail?: string;
+  images?: string[];
 };
 
 type ProductCardProps = {
@@ -21,7 +20,6 @@ type ProductCardProps = {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const [showDescription, setShowDescription] = useState(false);
-  const navigate = useNavigate();
 
   return (
     <div
@@ -44,6 +42,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             {product.description}
           </p>
           <button
+            data-testid="description-toggler"
             onClick={() => setShowDescription(!showDescription)}
             className="text-primary-color transition-colors mt-2"
           >
@@ -52,10 +51,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </button>
         </div>
 
-        <button
-          className="bg-primary-color text-white py-2 px-4 w-full max-w-[300px] rounded mt-3"
-          onClick={() => navigate("/login")}
-        >
+        <button className="bg-primary-color text-white py-2 px-4 w-full max-w-[300px] rounded mt-3">
           Add to Cart
         </button>
       </div>

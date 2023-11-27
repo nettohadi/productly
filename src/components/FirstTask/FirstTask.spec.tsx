@@ -1,13 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import AccountArea from "./index";
+import FirstTask from ".";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
-
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useNavigate: () => jest.fn(),
-}));
 
 let mockUseQueryValue = {};
 
@@ -16,13 +11,13 @@ jest.mock("@tanstack/react-query", () => ({
   useQuery: jest.fn(() => mockUseQueryValue),
 }));
 
-const WrappedAccountArea = () => (
+const WrappedFirstTask = () => (
   <QueryClientProvider client={queryClient}>
-    <AccountArea />
+    <FirstTask />
   </QueryClientProvider>
 );
 
-describe("AccountArea component", () => {
+describe("FirstTask component", () => {
   it("displays loading component when data is being fetched", () => {
     mockUseQueryValue = {
       isLoading: true,
@@ -30,8 +25,7 @@ describe("AccountArea component", () => {
       data: null,
       error: null,
     };
-
-    render(<WrappedAccountArea />);
+    render(<WrappedFirstTask />);
     expect(screen.getByText("Loading Data ...")).toBeTruthy();
   });
 
@@ -40,10 +34,24 @@ describe("AccountArea component", () => {
       isLoading: false,
       isError: true,
       data: null,
-      error: { message: "error" },
+      error: { message: "Network error" },
     };
+    render(<WrappedFirstTask />);
+    expect(screen.getByText("Error: Network error")).toBeTruthy();
+  });
 
-    render(<WrappedAccountArea />);
-    expect(screen.getByText("Error: error")).toBeTruthy();
+  it("displays products after successful data fetch", () => {
+    mockUseQueryValue = {
+      isLoading: false,
+      isError: false,
+      data: {
+        products: [
+          { id: "1", name: "Product Name", description: "Product description" },
+        ],
+      },
+      error: null,
+    };
+    render(<WrappedFirstTask />);
+    expect(screen.getByText("Product Name")).toBeTruthy();
   });
 });

@@ -13,7 +13,7 @@ const fetchProducts = async (): Promise<{
   return response.json();
 };
 
-const FirstTest = () => {
+const FirstTask = () => {
   const { isLoading, isError, data, error } = useQuery<{
     products: Array<Product>;
   }>({
@@ -42,4 +42,4 @@ const FirstTest = () => {
   );
 };
 
-export default FirstTest;
+export default FirstTask;
